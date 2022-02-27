@@ -13,16 +13,16 @@ export default function Index() {
       <Head>
         <title>Home - Kien Dang</title>
       </Head>
-      <Stack>
+      <Stack as="main">
         <Flex
           justifyContent="center"
           flexDirection="column"
           alignItems="center"
         >
-          <Heading>Hello, my name is Kien</Heading>
-          <Text color={colorSecondary[colorMode]}>
-            {" "}
-            I am a software developer at Coveo
+          <Heading mb="2">Hello, my name is Kien</Heading>
+          <Text color={colorSecondary[colorMode]} textAlign="center">
+            I'm Software Developer at Coveo. <br></br> I am a lifelong learner
+            with a passion for solving problems via code.
           </Text>
         </Flex>
       </Stack>
