@@ -1,38 +1,50 @@
-import React, { useState } from "react";
-import Head from "next/head";
-import {
-  Heading,
-  Flex,
-  Stack,
-  Input,
-  InputGroup,
-  InputRightElement,
-} from "@chakra-ui/react";
+import React from "react";
+import NextLink from "next/link";
+import { useColorMode, Heading, Text, Flex, Box, Link } from "@chakra-ui/react";
+import { parseISO, format } from "date-fns";
 
-export default function Blog({ post }) {
+const BlogPost = ({ title, publishedAt, description, slug }) => {
+  const { colorMode } = useColorMode();
+  const secondaryTextColor = {
+    light: "gray.700",
+    dark: "gray.400",
+  };
+
   return (
-    <>
-      <Head>
-        <title>Blog - Kien Dang</title>
-      </Head>
-      <Container>
-        <Stack as="main">
+    <NextLink href={`blog/${slug}`} passHref>
+      <Link w="100%" _hover={{ textDecoration: "none" }}>
+        <Box mb={10} display="block" width="100%">
           <Flex
-            justifyContent="center"
-            flexDirection="column"
-            alignItems="center"
+            width="100%"
+            align="flex-start"
+            justifyContent="space-between"
+            flexDirection={["column", "row"]}
           >
-            <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
-              Blog
-            </Heading>
-          </Flex>
-        </Stack>
-      </Container>
-    </>
-  );
-}
+            <Flex
+              flexDirection="column"
+              align="flex-start"
+              justifyContent="start"
+              width="100%"
+            >
+              <Heading size="md" as="h3" mb={1} fontWeight="medium">
+                {title}
+              </Heading>
+            </Flex>
 
-export async function getStaticProps() {
-  // TODO fetch blog posts
-  return { props: { posts } };
-}
+            <Text
+              color="gray.500"
+              minWidth="140px"
+              textAlign={["left", "right"]}
+              mb={[4, 0]}
+            >
+              {format(parseISO(publishedAt), "MMMM dd, yyyy")}
+            </Text>
+          </Flex>
+          <Text color={secondaryTextColor[colorMode]}>{description}</Text>
+        </Box>
+      </Link>
+    </NextLink>
+  );
+};
+
+export default BlogPost;
