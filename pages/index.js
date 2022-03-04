@@ -21,7 +21,7 @@ export default function Index() {
         >
           <Heading mb="2">Hello, my name is Kien</Heading>
           <Text color={colorSecondary[colorMode]} textAlign="center">
-            I'm Software Developer at Coveo. <br></br> I am a lifelong learner
+            I am Software Developer at Coveo. <br></br> I am a lifelong learner
             with a passion for solving problems via code.
           </Text>
         </Flex>

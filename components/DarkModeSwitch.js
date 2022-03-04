@@ -8,8 +8,6 @@ const DarkModeSwitch = () => {
     dark: "white",
   };
 
-  console.log(colorMode);
-
   return (
     <IconButton
       aria-label="Toggle dark mode"

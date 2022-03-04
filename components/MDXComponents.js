@@ -10,6 +10,7 @@ import {
   Divider,
   useColorMode,
 } from "@chakra-ui/react";
+import React from "react";
 import { jsx } from "@emotion/react";
 import NextLink from "next/link";
 
