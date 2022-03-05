@@ -83,7 +83,7 @@ const DocsHeading = (props) => (
   >
     <Box pointerEvents="auto">
       {props.children}
-      {props.id && (
+      {!props.id && (
         <Box
           aria-label="anchor"
           as="a"
